@@ -1,71 +1,90 @@
-# Customer Retention Analysis and RFM Segmentation in E-commerce  
+# Customer Retention and RFM Analytics in E-commerce
 
-## Project Overview  
-Data-driven analysis of customer retention in an electronics e-commerce dataset (2.6M transactions, Apr–Nov 2020).  
-The project applies cohort-based retention analysis, RFM analytics, and customer segmentation techniques to uncover behavioral patterns and generate actionable business insights.  
+## Overview
+This project analyzes customer purchasing behavior in an e-commerce setting to understand retention patterns, revenue concentration, and customer value. Using a combination of cohort analysis, RFM segmentation, and machine learning–based clustering, the project translates raw transaction data into actionable customer personas and business insights.
 
----
-
-## Objectives  
-- Measure customer retention trends over time using cohort analysis.  
-- Apply **RFM (Recency, Frequency, Monetary) analysis** to identify key customer groups.  
-- Perform **segmentation** using machine learning (clustering) to discover behavioral patterns.  
-- Translate findings into **business-focused insights** for retention and revenue growth strategies.  
+The focus is on practical, decision-oriented analytics rather than purely technical modeling.
 
 ---
 
-## Dataset  
-- **Source:** [Kaggle – E-commerce Purchase History from Electronics Store](https://www.kaggle.com/datasets/mkechinov/ecommerce-purchase-history-from-electronics-store/data)  
-- **Provider:** [REES46 Marketing Platform](https://rees46.com/)  
-- **Size:** ~2.6M purchase events  
-- **Timeline:** April 2020 – November 2020  
-- **Features:**  
-  - `event_time` – purchase timestamp  
-  - `order_id` – unique order identifier  
-  - `user_id` – customer identifier  
-  - `product_id` – product identifier  
-  - `category_id` – category identifier  
-  - `category_code` – category label (nullable)  
-  - `brand` – brand name (nullable)  
-  - `price` – product price  
+## Business Objectives
+1. Analyze customer retention behavior over time using cohort analysis  
+2. Identify high-value customers and revenue concentration patterns  
+3. Segment customers into actionable groups to support targeted retention and marketing strategies  
 
 ---
 
-## Tools & Technologies  
-- **Language:** Python  
-- **Libraries:** pandas, numpy, scikit-learn, matplotlib, seaborn, plotly  
-- **Optional:** lifelines (for retention curves), mlxtend (for association rules)  
-- **Dashboard:** Streamlit  
+## Dataset
+- **Source:** Kaggle – E-commerce Purchase History (Electronics Store, REES46)  
+- **Scale:** ~2.6M transaction events  
+- **Time period:** 2020  
+- **Granularity:** Event-level data aggregated into order-level and user-level views  
 
 ---
 
-## Key Analyses  
-1. **Customer Retention Analysis**  
-   - Cohort retention tables & heatmaps  
-   - Survival/retention curves  
+## Methodology
 
-2. **RFM Analytics**  
-   - Recency, Frequency, Monetary scoring  
-   - Segment profiles and revenue contribution  
+### Data Preparation
+- Explicit schema definition to prevent identifier precision loss
+- Timestamp validation and filtering
+- Order-level aggregation from event-level data
+- Outlier handling using winsorization for robust revenue analysis
 
-3. **Segmentation (Machine Learning)**  
-   - Feature engineering from RFM + behavioral metrics  
-   - K-Means clustering & cluster profiling  
-   - Business insights and recommended actions  
+### Exploratory & Descriptive Analysis
+- Revenue and basket-size distributions
+- Monthly order and revenue trends
+- Category and brand-level revenue concentration
+- Revenue concentration across users
+
+### Retention Analysis
+- Monthly cohort construction based on first purchase date
+- Cohort retention tables and heatmaps to quantify repeat behavior
+
+### RFM Segmentation
+- Recency, Frequency, and Monetary scoring using quantile-based bins
+- Business-friendly RFM segments with clear behavioral interpretation
+- Segment-level KPIs and recommended actions
+
+### Machine Learning–Based Segmentation
+- Feature engineering beyond RFM (basket size, purchase gaps, diversity, tenure)
+- MiniBatch K-Means clustering with metric-based model selection
+- Customer personas derived from cluster profiles
+- Comparison of ML-based segmentation with traditional RFM segmentation
 
 ---
 
-## Results (to be updated)  
-- Key insights will be summarized here once analysis is complete.  
-- Visualizations and cluster profiles will be added.  
+## Key Insights
+- Customer retention drops sharply after the first purchase, with only a small core of repeat buyers persisting over time.
+- Revenue is highly concentrated: a small fraction of users accounts for a large share of total sales.
+- RFM segmentation provides a strong baseline understanding of customer value.
+- ML-based segmentation adds behavioral depth, revealing distinct customer personas with different revenue and engagement profiles.
 
 ---
 
-## Dashboard (to be added)  
-An interactive Streamlit dashboard will be developed for exploring cohorts, RFM segments, and clusters.  
+## Business Outcomes
+- Identification of high-value customers requiring retention-first strategies
+- Clear distinction between large low-value segments and small high-impact segments
+- Actionable customer personas suitable for CRM targeting and campaign design
 
 ---
 
-## References  
-- Dataset: [Kaggle – E-commerce Purchase History from Electronics Store](https://www.kaggle.com/datasets/mkechinov/ecommerce-purchase-history-from-electronics-store/data)  
-- Provider: [REES46 Marketing Platform](https://rees46.com/) 
+## Limitations
+- Segmentation is based on historical behavior and does not guarantee future outcomes.
+- Unsupervised clustering infers patterns without predefined business labels.
+- Results depend on the chosen time window and available transaction history.
+
+---
+
+## Files
+- `notebooks/` – Full analysis notebook  
+- `outputs/` – Rendered PDF report  
+- `data/` – Dataset (or instructions to obtain it)
+
+---
+
+## Tools & Technologies
+- Python (pandas, NumPy, matplotlib, seaborn)
+- scikit-learn
+- Jupyter Notebook
+
+---
