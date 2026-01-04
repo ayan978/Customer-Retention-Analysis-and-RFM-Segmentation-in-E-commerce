@@ -3,7 +3,6 @@
 ## Overview
 This project analyzes customer purchasing behavior in an e-commerce setting to understand retention patterns, revenue concentration, and customer value. Using a combination of cohort analysis, RFM segmentation, and machine learning–based clustering, the project translates raw transaction data into actionable customer personas and business insights.
 
-The focus is on practical, decision-oriented analytics rather than purely technical modeling.
 
 ---
 
